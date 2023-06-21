@@ -1,8 +1,16 @@
-import { useQuiz } from "../contexts/QuizContext";
+import { ActionWithoutPayload } from "../App";
 
-function FinishScreen() {
-  const { points, highscore, dispatch, questions } = useQuiz();
-  const maxPoints = questions.reduce((acc, curr) => acc + curr.points, 0);
+function FinishScreen({
+  points,
+  maxPoints,
+  highscore,
+  dispatch,
+}: {
+  points: number;
+  maxPoints: number;
+  highscore: number;
+  dispatch: React.Dispatch<ActionWithoutPayload>;
+}) {
   const percentage = (points / maxPoints) * 100;
   let emoji;
   if (percentage === 100) emoji = "🥳";

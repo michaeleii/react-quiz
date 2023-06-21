@@ -1,8 +1,13 @@
 import { useEffect } from "react";
-import { useQuiz } from "../contexts/QuizContext";
+import { ActionWithoutPayload } from "../App";
 
-function Timer() {
-  const { dispatch, secondsRemaining } = useQuiz();
+function Timer({
+  dispatch,
+  secondsRemaining,
+}: {
+  dispatch: React.Dispatch<ActionWithoutPayload>;
+  secondsRemaining: number;
+}) {
   const mins = Math.floor(secondsRemaining / 60);
   const seconds = secondsRemaining % 60;
   useEffect(() => {

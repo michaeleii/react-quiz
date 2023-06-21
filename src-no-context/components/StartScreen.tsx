@@ -1,8 +1,12 @@
-import { useQuiz } from "../contexts/QuizContext";
+import { ActionWithoutPayload } from "../App";
 
-function StartScreen() {
-  const { questions, dispatch } = useQuiz();
-  const numQuestions = questions.length;
+function StartScreen({
+  numQuestions,
+  dispatch,
+}: {
+  numQuestions: number;
+  dispatch: React.Dispatch<ActionWithoutPayload>;
+}) {
   return (
     <div className="start">
       <h2>Welcome to The React Quiz!</h2>
